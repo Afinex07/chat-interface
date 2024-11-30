@@ -1,37 +1,64 @@
+
+
+
+
+
+// pro2.js
+
+// Sample username and password for validation (you can replace these with real values or use an API)
+const validUsername = 'Afinex07';
+const validPassword = 'Afinex';
+
+// Get references to the HTML elements
 const loginForm = document.getElementById('login-form');
-const chatForm = document.getElementById('chat-form');
-const chatInput = document.getElementById('chat-input');
-const chatMessages = document.getElementById('chat-messages');
+const usernameInput = document.getElementById('username');
+const passwordInput = document.getElementById('password');
 const errorMessage = document.getElementById('error-message');
 const loginContainer = document.querySelector('.login-container');
-const chatContainer = document.querySelector('.chat-container')
-let username = "Afinex07";
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const usernameInput = document.getElementById('username').value;
-    const passwordInput = document.getElementById('password').value;
-    if usernameInput === 'Afinex07' / passwordInput === 'Afinex'{
-        errorMessage.textContent = 'please fill in both username and password.';
-    } else {
-        username = usernameInput;
+const chatContainer = document.querySelector('.chat-container');
+
+// Listen for the form submission
+loginForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission and page reload
+
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+
+    // Validate the login credentials
+    if (username === validUsername && password === validPassword) {
+        // If credentials are correct, hide the login form and show the chat interface
         loginContainer.style.display = 'none';
-        chatContainer.style.display = 'block'
-    }
-});
-
-chatForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const message = chatInput.value;
-    if (message ==='') {
-        errorMessage.textContent = 'please enter a message.';
+        chatContainer.style.display = 'block';
     } else {
-        const messageElement = document.createElement('div');
-        messageElement.textContent = `$ {username}: ${message}`;
-        chatMessages.appendChild(messageElement);
-        chatInput.value = '';
+        // If credentials are incorrect, show an error message
+        errorMessage.textContent = 'Invalid username or password. Please try again.';
+        errorMessage.style.color = 'red';
     }
 });
 
+// Chat functionality (basic)
+const sendButton = document.getElementById('send-btn');
+const chatBox = document.getElementById('chat-box');
+const chatInput = document.getElementById('chat-input');
+
+sendButton.addEventListener('click', function() {
+    const message = chatInput.value;
+    if (message) {
+        // Create a new message element and append it to the chat box
+        const newMessage = document.createElement('div');
+        newMessage.textContent = message;
+        chatBox.appendChild(newMessage);
+        chatInput.value = ''; // Clear input field
+        chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the latest message
+    }
+});
+
+// Optional: Allow pressing "Enter" to send a message
+chatInput.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        sendButton.click();
+    }
+});
 
 let btn = document.getElementById('send-btn')
 btn.addEventListener('click', sendMessage);
