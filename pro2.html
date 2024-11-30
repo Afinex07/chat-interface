@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+n<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,8 +7,21 @@
     <link rel="stylesheet" href="pro2.css">
 </head>
 <body>
-    <div class="chat-container">
-        <div id="chat-box" class="chat-box">c
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="Afinex07"><br><br>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="Afinex"><br><br>
+            <button type="submit">Login</button>
+        </form>
+        <p id="error-message"></p>
+    </div>
+
+    <div class="chat-container" style="display: none;">
+        <h2>Chat Interface</h2>
+        <div id="chat-box" class="chat-box">
         </div>
         <div class="input-container">
             <input type="text" id="chat-input" placeholder="Type your message here...">
