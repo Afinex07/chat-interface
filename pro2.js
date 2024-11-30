@@ -69,7 +69,7 @@ function sendMessage(){
    const messageText = chatInput.value
    console.log(messageText)
    if(messageText !== ''){
-    appendMessage('Afinex', messageText, '2mins ago');
+g    appendMessage('Afinex', messageText, '2mins ago');
     chatInput.value = '';
     setTimeout(()=>{
         appendMessage('Afinex enterprise', 'your next bill is due on dec 12', 'just now');
