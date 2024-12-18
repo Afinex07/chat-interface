@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Interface</title>
+    <link rel="stylesheet" href="pro2.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="Afinex07"><br><br>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="Afinex"><br><br>
+            <button type="submit">Login</button>
+        </form>
+        <p id="error-message"></p>
+    </div>
+
+    <div class="chat-container" style="display: none;" style="display: block;">
+        <h2>Chat Interface</h2>
+        <div id="chat-box" class="chat-box">
+        </div>
+        <div class="input-container">
+            <input type="text" id="chat-input" placeholder="Type your message here...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+    <script src="pro2.js"></script>
+</body>
+</html>
